@@ -4,8 +4,6 @@
     var _dataStructures = {};
 
     _dataStructures.initialize = function () {
-		debugger;
-
 		this.createLinkedList();
     };    
 
@@ -17,9 +15,9 @@
 			List.addNode( { data: x } );
     	}
 
-    	List.deleteNode( { data: 3} );
-    	List.deleteNode( { data: 1} );
-    	List.deleteNode( { data: 9} );
+    	//List.deleteNode( { data: 3} );
+        debugger;
+        List.output();
     };
 
     window.dataStructures = window.dataStructures || _dataStructures;
