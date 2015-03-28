@@ -12,14 +12,18 @@
 			var self 	= this;
 		},
 		ajaxCall: function(params) {
-			$.ajax({
+			return $.ajax({
 			  method: params.method,
 			  url: params.url,
 			  data: params.data
-			}).done(function( result ) {			    
-			    console.log(result);
+			}).then(function( results ) {			    
+			    console.log(results);
+			    return results;
 			});
-		}
+		},
+		// csvToJson: function(params) {
+		// 	debugger;
+		// }
     };
 
     window.Services = window.Services || Services;

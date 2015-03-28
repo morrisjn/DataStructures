@@ -83,7 +83,30 @@
             
             debugger;
             var services = new window.Services();
-            services.ajaxCall( { method: 'GET', url: "http://ip.jsontest.com/" } );            
+            //services.ajaxCall( { method: 'GET', url: "http://ip.jsontest.com/" } );
+            //services.ajaxCall( { method: 'GET', url: "https://public.opencpu.org/ocpu/library/MASS/data/bacteria/csv" } );
+
+
+
+            <!-- Functions -->
+            function fizzBuzz() {
+                for(var x = 1; x <= 100; x++) {
+                    var output = "";
+                    
+                    if(!(x % 3)) {
+                        output = "Fizz";
+                    }
+                    
+                    if(!(x % 5)) {
+                        output += "Buzz";
+                    }
+                    
+                    output = output || x;
+                    
+                    console.log(output);
+                }
+            }
+
         </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
