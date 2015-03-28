@@ -40,9 +40,10 @@
 			var self = this;
 			var currentNode = self.start;
 			var previousNode = currentNode;
+			var currentIndex = 0;
 
 			while(currentNode != null) {
-				if(currentNode.data == params.data) {
+				if(currentIndex == params.index) {
 					if(self.start == currentNode) {//First Node
 						self.start = currentNode.next;
 						return;
@@ -59,7 +60,8 @@
 				}	
 
 				previousNode = currentNode;
-				currentNode = currentNode.next;					
+				currentNode = currentNode.next;	
+				currentIndex++;				
 			}
 
 			return;

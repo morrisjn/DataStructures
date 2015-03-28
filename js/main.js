@@ -21,11 +21,37 @@
             ListB.addNode( { data: Math.floor((Math.random() * 100) + 1) } );
     	}*/
 
-    	//List.deleteNode( { data: 3} );
         debugger;
-        // List.output();
+    	
+        //List.output();
 
+        testList_deleteNode( { list: List, index: [3, 1], expectedDeletions: [47, 89] } );
         testList_reverse( { list: List } );
+    };
+
+    function testList_deleteNode(params) {
+        var deleteList      = params.list.clone();//Copy without reference
+
+        //Delete indexes
+        for(var x = 0, length = params.index.length; x < length; x++) {
+            deleteList.deleteNode( { index: params.index[x] } );
+        }
+
+        //Convert both lists to arrays
+        var listArray       = params.list.convertToArray();
+        var deleteArray     = deleteList.convertToArray();
+        var deletionArray   = $(listArray).not(deleteArray).get();//Compare results
+
+        console.log("Testing Deletion with: " + listArray);
+
+        //Compare JSON stringified arrays.
+        if(JSON.stringify(params.expectedDeletions) == JSON.stringify(deletionArray)) {
+            console.log("Deletion Test: Passed. Deleted: " + deletionArray);
+            return true;
+        }
+
+        console.log("Deletion Test: Failed");
+        return false;
     };
 
     function testList_reverse(params) {
@@ -42,7 +68,7 @@
         //Reverse one of the arrays
         reverseArray.reverse();
 
-        //Compare JSON stringified arrays. Not perfect, but works for this example
+        //Compare JSON stringified arrays.
         if(JSON.stringify(listArray) == JSON.stringify(reverseArray)) {
             console.log("Reverse Test: Passed");
             return true;
