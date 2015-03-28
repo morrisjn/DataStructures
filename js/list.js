@@ -6,6 +6,8 @@
 
         self.start 	= null;
         self.end 	= null;
+
+        self.initialize();
     };
 
     List.prototype = {
@@ -113,7 +115,6 @@
 			var currentNodeA 	= self.start;
 			var currentNodeB 	= params.list.start;
 			var newList 		= new window.List();
-			newList.initialize();
 
 			while(currentNodeA != null || currentNodeB != null ) {
 				var num = ((currentNodeA) ? currentNodeA.data : 0) + ((currentNodeB) ? currentNodeB.data : 0) ;
@@ -132,6 +133,8 @@
 			var previousNode 	= null;
 			var currentNode		= self.start;			
 			var nextNode 		= self.start.next;
+			self.start 			= self.end;
+			self.end 			= currentNode;
 
 			while(currentNode != null) {
 				currentNode.next= previousNode;
@@ -140,10 +143,31 @@
 				currentNode 	= nextNode;
 				nextNode 		= (nextNode) ? nextNode.next : null;
 			}
+	    },
+	    convertToArray: function (params) {
+			var self 		= this;
+			var myData 		= [];
+			var currentNode = self.start;
 
-			var tmp 			= self.start;
-			self.start 			= self.end;
-			self.end 			= tmp;
+			while(currentNode != null) {
+				myData.push(currentNode.data);
+				currentNode = currentNode.next;
+			}
+
+
+			return myData;
+	    },
+	    clone: function(params) {
+			var self 		= this;
+			var myData 		= new window.List();
+			var currentNode = self.start;
+
+			while(currentNode != null) {
+				myData.addNode( { data: currentNode.data } );
+				currentNode = currentNode.next;
+			}
+
+			return myData;	    	
 	    }
 	};
 
