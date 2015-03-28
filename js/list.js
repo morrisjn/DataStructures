@@ -79,7 +79,7 @@
 				console.log(params.data);
 			};
 
-			self.traverseList({ callback: callback })
+			self.traverseList({ callback: callback });
 	    },
 	    bubbleSort: function (params) {
 	    	var self 		= this;
@@ -106,7 +106,27 @@
 				nextNode 		= self.start.next;
 			}
 	    	
-	    }	    
+	    },
+	    //Nodes in a list represent a number. Please implement a function/method to add numbers in two lists, and store the sum into a new list. 
+	    addList: function (params) {
+			var self 			= this;
+			var currentNodeA 	= self.start;
+			var currentNodeB 	= params.list.start;
+			var newList 		= new window.List();
+			newList.initialize();
+
+			while(currentNodeA != null || currentNodeB != null ) {
+				var num = ((currentNodeA) ? currentNodeA.data : 0) + ((currentNodeB) ? currentNodeB.data : 0) ;
+				newList.addNode( { data:  num} );
+
+				console.log("Added: " + num);
+
+				currentNodeA = (currentNodeA) ? currentNodeA.next : null;
+				currentNodeB = (currentNodeB) ? currentNodeB.next : null;
+			}
+
+			return newList;
+	    }
 	};
 
     window.List = window.List || List;
