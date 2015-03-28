@@ -18,14 +18,11 @@
             ListB.addNode( { data: Math.floor((Math.random() * 100) + 1) } );
     	}
 
-        List.addNode( { data: Math.floor((Math.random() * 100) + 1) } );
-
     	//List.deleteNode( { data: 3} );
         debugger;
-        //List.output();
-
-        var newList = List.addList( { list: ListB } );
-        newList.output();
+        List.output();
+        List.reverse();
+        List.output();
     };
 
     window.dataStructures = window.dataStructures || _dataStructures;

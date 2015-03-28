@@ -107,7 +107,7 @@
 			}
 	    	
 	    },
-	    //Nodes in a list represent a number. Please implement a function/method to add numbers in two lists, and store the sum into a new list. 
+	    //Add each node of two lists together and store it in a new list
 	    addList: function (params) {
 			var self 			= this;
 			var currentNodeA 	= self.start;
@@ -126,6 +126,24 @@
 			}
 
 			return newList;
+	    },
+	    reverse: function (params) {
+			var self 			= this;
+			var previousNode 	= null;
+			var currentNode		= self.start;			
+			var nextNode 		= self.start.next;
+
+			while(currentNode != null) {
+				currentNode.next= previousNode;
+
+				previousNode 	= currentNode;
+				currentNode 	= nextNode;
+				nextNode 		= (nextNode) ? nextNode.next : null;
+			}
+
+			var tmp 			= self.start;
+			self.start 			= self.end;
+			self.end 			= tmp;
 	    }
 	};
 
