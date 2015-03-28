@@ -80,7 +80,33 @@
 			};
 
 			self.traverseList({ callback: callback })
-	    }
+	    },
+	    bubbleSort: function (params) {
+	    	var self 		= this;
+			var currentNode = self.start;
+			var nextNode 	= self.start.next
+			var endNode 	= self.end;
+			var previousNode= {};
+
+			while(currentNode != endNode) {
+				do {
+					if(nextNode && currentNode.data > nextNode.data) {
+						var tmp 			= currentNode.data;
+						currentNode.data 	= nextNode.data;
+						nextNode.data 		= tmp;
+					}
+
+					previousNode= currentNode;
+					currentNode = currentNode.next;
+					nextNode 	= nextNode.next;
+				} while (currentNode != endNode);
+
+				endNode 		= previousNode;
+				currentNode 	= self.start;
+				nextNode 		= self.start.next;
+			}
+	    	
+	    }	    
 	};
 
     window.List = window.List || List;
