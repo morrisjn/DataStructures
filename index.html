@@ -75,9 +75,15 @@
 
         <script src="js/main.js"></script>
         <script src="js/list.js"></script>
+        <script src="js/test.js"></script>
+        <script src="js/services.js"></script>
 
         <script>
             window.dataStructures.initialize();
+            
+            debugger;
+            var services = new window.Services();
+            services.ajaxCall( { method: 'GET', url: "http://ip.jsontest.com/" } );            
         </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
